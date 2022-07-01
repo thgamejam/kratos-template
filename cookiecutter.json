@@ -1,5 +1,7 @@
 {
   "project_name": "microservices",
   "module_name": "github.com/thgamejam/microservices",
-  "service_name": "thjam.microservices"
+  "service_name": "thjam.microservices",
+  "git_url": "https://git.com/thjam/microservices.git",
+  "push_to_remote_after_creation": "yes"
 }

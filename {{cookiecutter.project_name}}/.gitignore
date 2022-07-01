@@ -40,7 +40,7 @@ bin/
 *.swagger.json
 openapi.yaml
 
-/proto/
+/proto/*
 
 go.sum
 
