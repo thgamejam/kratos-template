@@ -65,13 +65,12 @@ make help
 ## Docker
 ```bash
 # 构建
-docker build -t <your-docker-image-name> .
+docker build -t {{cookiecutter.project_name}}:<version> .
 
 # 运行
-docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf <your-docker-image-name>
+docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf {{cookiecutter.project_name}}:<version>
 
 # docker-compose 运行
 cd dev
 docker-compose -f service-compose.yaml up -d
 ```
-

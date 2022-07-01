@@ -6,7 +6,7 @@ import (
 )
 
 // ProviderSet is biz providers.
-var ProviderSet = wire.NewSet(NewGreeterUseCase)
+var ProviderSet = wire.NewSet(New{{cookiecutter.project_name | title}}UseCase)
 
 // {{cookiecutter.project_name | title}}Repo is a {{cookiecutter.project_name | title}} repo.
 type {{cookiecutter.project_name | title}}Repo interface {

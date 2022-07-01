@@ -1,5 +1,5 @@
 syntax = "proto3";
-package {{cookiecutter.service_name | lower}}.conf
+package {{cookiecutter.service_name | lower}}.conf;
 
 option go_package = "app/{{cookiecutter.project_name}}/internal/conf;conf";
 

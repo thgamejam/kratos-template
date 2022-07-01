@@ -1,15 +1,16 @@
 package data
 
 import (
-	"github.com/go-kratos/kratos-layout/internal/conf"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
+
+	"{{cookiecutter.module_name}}/internal/conf"
 )
 
 // ProviderSet is data providers.
 var ProviderSet = wire.NewSet(
 	NewData,
-	NewGreeterRepo,
+	New{{cookiecutter.project_name | title}}Repo,
 )
 
 // Data .
