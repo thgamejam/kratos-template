@@ -1,0 +1,36 @@
+syntax = "proto3";
+package {{cookiecutter.service_name | lower}}.conf
+
+option go_package = "app/{{cookiecutter.project_name}}/internal/conf;conf";
+
+import "consul.proto";
+import "http.proto";
+import "grpc.proto";
+import "database.proto";
+import "redis.proto";
+import "queue.proto";
+
+message CloudBootstrap {
+  pkg.conf.Consul consul = 1;
+}
+
+message Bootstrap {
+  Server server = 1;
+  Data data = 2;
+  {{cookiecutter.project_name | title}} {{cookiecutter.project_name}} = 3;
+}
+
+message Server {
+  pkg.conf.HTTP http = 1;
+  pkg.conf.GRPC grpc = 2;
+}
+
+message Data {
+  pkg.conf.Database database = 1;
+  pkg.conf.Redis redis = 2;
+  pkg.conf.Queue email_mq = 3;
+}
+
+message {{cookiecutter.project_name | title}} {
+  string value = 1;
+}
