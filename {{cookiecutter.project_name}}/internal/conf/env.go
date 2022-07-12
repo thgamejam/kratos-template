@@ -15,23 +15,18 @@ type Env struct {
 
 	// ConfigDirectory 配置文件路径
 	ConfigDirectory string
-
-	// TemporaryFileDirectory 临时文件存放目录
-	TemporaryFileDirectory string
 }
 
 var env = Env{
 	// 添加默认值
-	ConsulURL:              "http://0.0.0.0:8500",
-	ConsulDatacenter:       "dev",
-	ConsulConfDirectory:    "{{cookiecutter.service_name}}.service/dev/",
-	ConfigDirectory:        "../configs",
-	TemporaryFileDirectory: "../tmp",
+	ConsulURL:           "http://0.0.0.0:8500",
+	ConsulDatacenter:    "dev",
+	ConsulConfDirectory: "{{cookiecutter.service_name}}.service/dev/",
+	ConfigDirectory:     "../configs",
 }
 
 func InitEnv() {
 	flag.StringVar(&env.ConfigDirectory, "conf", "../configs", "配置路径，例如：-conf config.yaml")
-	flag.StringVar(&env.TemporaryFileDirectory, "tmp", "../tmp", "临时文件存放的路径, 例如：-tmp ./tmp/file_edge")
 	flag.Parse()
 
 	// 环境变量覆盖输入参数
@@ -51,11 +46,6 @@ func InitEnv() {
 	_configDirectory := os.Getenv("CONFIG_DIRECTORY")
 	if _configDirectory != "" {
 		env.ConfigDirectory = _configDirectory
-	}
-
-	_temporaryFilePath := os.Getenv("TEMPORARY_FILE_DIRECTORY")
-	if _temporaryFilePath != "" {
-		env.TemporaryFileDirectory = _temporaryFilePath
 	}
 }
 
