@@ -102,10 +102,11 @@ all:
 .PHONY: service
 # 生成service文件代码
 service:
-	if [ -f "./internal/service/$(PROJECT_NAME).go" ]; then \
-	  mv $(SERVICE_FILE) $(SERVICE_FILE).d ; \
+	@echo '生成service文件代码...'
+	@if [ -f "./internal/service/$(PROJECT_NAME).go" ]; then \
+	  mv $(SERVICE_FILE) $(SERVICE_FILE).bak ; \
 	fi
-	kratos proto server "$(API_PROTO_DIR)/$(PROJECT_NAME)/v1/$(PROJECT_NAME).proto" -t "$(SERVICE_DIR)"
+	@kratos proto server "$(API_PROTO_DIR)/$(PROJECT_NAME)/v1/$(PROJECT_NAME).proto" -t "$(SERVICE_DIR)"
 
 .PHONY: generate
 # 代码生成
@@ -157,3 +158,4 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
+
