@@ -19,6 +19,13 @@ data:
     password: ""
     read_timeout: 0.2s
     write_timeout: 0.2s
+  objectStorage:
+    domain: localhost:9000
+    access_key_id: minioadmin
+    secret_access_key: minioadmin
+    location: cn-north-1
+    secure: false
+    token: ""
 
 {{cookiecutter.project_name}}:
   value: "value"
